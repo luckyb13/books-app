@@ -1,0 +1,49 @@
+doctype html
+
+html
+
+  head
+    title= title
+
+  body
+
+    h1 Library App
+
+    form(action="/add-book" method="POST")
+
+      input(
+        type="text"
+        name="title"
+        placeholder="Book Title"
+        required
+      )
+
+      input(
+        type="text"
+        name="author"
+        placeholder="Author"
+        required
+      )
+
+      button(type="submit")
+        | Add Book
+
+    hr
+
+    each book in books
+
+      div
+
+        h3= book.title
+
+        p= book.author
+
+        form(
+          action=`/delete/${book._id}`
+          method="POST"
+        )
+
+          button(type="submit")
+            | Delete
+
+      hr
