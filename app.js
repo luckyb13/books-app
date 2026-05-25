@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 require("dotenv").config();
 const indexRouter = require("./routes/index");
-
+global.crypto = require("crypto");
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI)
